@@ -31,13 +31,17 @@ class _SwitchExampleState extends State<SwitchExample> {
                   'Notifications',
                   style: TextStyle(color: Colors.black, fontSize: 20.0),
                 ),
-                BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
-                  return Switch(
-                      value: state.isSwitch,
-                      onChanged: (value) {
-                        state.isSwitch;
-                      });
-                }),
+                BlocBuilder<SwitchBloc, SwitchState>(
+                    buildWhen: (current, previous) =>
+                        current.isSwitch != previous.isSwitch,
+                    builder: (context, state) {
+                      print('notifications...');
+                      return Switch(
+                          value: state.isSwitch,
+                          onChanged: (value) {
+                            state.isSwitch;
+                          });
+                    }),
               ],
             ),
             const SizedBox(height: 20),
@@ -49,13 +53,19 @@ class _SwitchExampleState extends State<SwitchExample> {
               );
             }),
             const SizedBox(height: 20),
-            BlocBuilder<SwitchBloc, SwitchState>(builder: (context, state) {
-              return Slider(
-                  value: state.slider,
-                  onChanged: (value) {
-                    context.read<SwitchBloc>().add(SliderEvent(slider: value));
-                  });
-            })
+            BlocBuilder<SwitchBloc, SwitchState>(
+                buildWhen: (current, previous) =>
+                    current.slider != previous.slider,
+                builder: (context, state) {
+                  print('slider...');
+                  return Slider(
+                      value: state.slider,
+                      onChanged: (value) {
+                        context
+                            .read<SwitchBloc>()
+                            .add(SliderEvent(slider: value));
+                      });
+                }),
           ],
         ),
       ),
