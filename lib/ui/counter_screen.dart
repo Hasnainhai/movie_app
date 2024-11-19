@@ -1,6 +1,6 @@
-import 'package:bloc_movie_app/bloc/counter_bloc.dart';
-import 'package:bloc_movie_app/bloc/counter_event.dart';
-import 'package:bloc_movie_app/bloc/counter_state.dart';
+import 'package:bloc_movie_app/bloc/counteBloc/counter_bloc.dart';
+import 'package:bloc_movie_app/bloc/counteBloc/counter_event.dart';
+import 'package:bloc_movie_app/bloc/counteBloc/counter_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
