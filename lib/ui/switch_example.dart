@@ -17,6 +17,7 @@ class _SwitchExampleState extends State<SwitchExample> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Example tw0'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -39,7 +40,9 @@ class _SwitchExampleState extends State<SwitchExample> {
                       return Switch(
                           value: state.isSwitch,
                           onChanged: (value) {
-                            state.isSwitch;
+                            context
+                                .read<SwitchBloc>()
+                                .add(EnableDisableSwitch());
                           });
                     }),
               ],
