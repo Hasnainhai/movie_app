@@ -1,8 +1,10 @@
+import 'package:bloc_movie_app/bloc/imagePickerBloc/image_picker_bloc.dart';
 import 'package:bloc_movie_app/bloc/switchBloc/switch_bloc.dart';
+import 'package:bloc_movie_app/ui/imagePicker/image_picker_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/counteBloc/counter_bloc.dart';
-import 'ui/switch_example.dart';
+import 'utils/image_picker_utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,13 +22,16 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => SwitchBloc(),
         ),
+        BlocProvider(
+          create: (_) => ImagePickerBloc(ImagePickerUtils()),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SwitchExample(),
+        home: const ImagePickerScreen(),
       ),
     );
   }
