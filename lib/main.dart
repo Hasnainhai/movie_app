@@ -12,17 +12,21 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CounterBloc(),
-      child: BlocProvider(
-        create: (_) => SwitchBloc(),
-        child: MaterialApp(
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const SwitchExample(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => CounterBloc(),
         ),
+        BlocProvider(
+          create: (_) => SwitchBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const SwitchExample(),
       ),
     );
   }
