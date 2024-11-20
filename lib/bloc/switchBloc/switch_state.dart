@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class SwitchState extends Equatable {
-  const SwitchState({this.isSwitch = true, this.slider = 0.1});
+  const SwitchState({this.isSwitch = false, this.slider = 0.1});
   final bool isSwitch;
   final double slider;
 
