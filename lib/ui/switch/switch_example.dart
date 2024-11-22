@@ -36,7 +36,6 @@ class _SwitchExampleState extends State<SwitchExample> {
                     buildWhen: (current, previous) =>
                         current.isSwitch != previous.isSwitch,
                     builder: (context, state) {
-                      print('notifications...');
                       return Switch(
                           value: state.isSwitch,
                           onChanged: (value) {
@@ -60,7 +59,6 @@ class _SwitchExampleState extends State<SwitchExample> {
                 buildWhen: (current, previous) =>
                     current.slider != previous.slider,
                 builder: (context, state) {
-                  print('slider...');
                   return Slider(
                       value: state.slider,
                       onChanged: (value) {

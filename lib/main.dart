@@ -36,23 +36,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-   // final student = Student(studentName: 'hasnain', studentAge: 21);
-          // final student1 = Student(studentName: 'hasnain', studentAge: 21);
-          // print(student == student1);
-          // print(student.hashCode.toString());
-          // print(student1.hashCode.toString());
-
-
-
-
-          
-// class Student extends Equatable {
-//   final String studentName;
-//   final int studentAge;
-//   const Student({required this.studentName, required this.studentAge});
-
-//   @override
-//   List<Object?> get props => [studentName, studentAge];
-// }
