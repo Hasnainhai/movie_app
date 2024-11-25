@@ -1,3 +1,4 @@
+import 'package:bloc_movie_app/bloc/favouriteApp/favourite_app_bloc.dart';
 import 'package:bloc_movie_app/bloc/imagePickerBloc/image_picker_bloc.dart';
 import 'package:bloc_movie_app/bloc/switchBloc/switch_bloc.dart';
 import 'package:bloc_movie_app/bloc/todo/to_do_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:bloc_movie_app/ui/favourite_app_screen/favourite_app_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/counteBloc/counter_bloc.dart';
+import 'repositories/favourite_repository.dart';
 import 'utils/image_picker_utils.dart';
 
 void main() {
@@ -29,13 +31,17 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => ToDoBloc(),
         ),
+        BlocProvider(
+          create: (_) => FavouriteAppBloc(FavouriteRepository()),
+        ),
       ],
       child: MaterialApp(
         themeMode: ThemeMode.dark,
         theme: ThemeData(
           brightness: Brightness.dark,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+
+          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          // useMaterial3: true,
         ),
         home: const FavouriteAppScreen(),
       ),
