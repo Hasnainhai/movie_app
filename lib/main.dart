@@ -1,12 +1,13 @@
 import 'package:bloc_movie_app/bloc/favouriteApp/favourite_app_bloc.dart';
 import 'package:bloc_movie_app/bloc/imagePickerBloc/image_picker_bloc.dart';
+import 'package:bloc_movie_app/bloc/postsBloc/posts_bloc.dart';
 import 'package:bloc_movie_app/bloc/switchBloc/switch_bloc.dart';
 import 'package:bloc_movie_app/bloc/todo/to_do_bloc.dart';
-import 'package:bloc_movie_app/ui/favourite_app_screen/favourite_app_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/counteBloc/counter_bloc.dart';
 import 'repositories/favourite_repository.dart';
+import 'ui/posts/post_screen.dart';
 import 'utils/image_picker_utils.dart';
 
 void main() {
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => FavouriteAppBloc(FavouriteRepository()),
         ),
+        BlocProvider(
+          create: (_) => PostsBloc(),
+        ),
       ],
       child: MaterialApp(
         themeMode: ThemeMode.dark,
@@ -43,7 +47,7 @@ class MyApp extends StatelessWidget {
           // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           // useMaterial3: true,
         ),
-        home: const FavouriteAppScreen(),
+        home: const PostScreen(),
       ),
     );
   }
