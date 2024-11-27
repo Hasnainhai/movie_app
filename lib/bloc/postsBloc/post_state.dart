@@ -5,21 +5,27 @@ import 'package:equatable/equatable.dart';
 class PostState extends Equatable {
   final Poststatus poststatus;
   final List<PostsModel> postList;
+  final List<PostsModel> tempPostList;
   final String message;
 
   const PostState(
       {this.poststatus = Poststatus.loading,
       this.postList = const <PostsModel>[],
+      this.tempPostList = const <PostsModel>[],
       this.message = ''});
 
   PostState copyWith(
-      {Poststatus? poststatus, List<PostsModel>? postList, String? message}) {
+      {Poststatus? poststatus,
+      List<PostsModel>? postList,
+      String? message,
+      List<PostsModel>? tempPostList}) {
     return PostState(
         poststatus: poststatus ?? this.poststatus,
         postList: postList ?? this.postList,
+        tempPostList: tempPostList ?? this.tempPostList,
         message: message ?? this.message);
   }
 
   @override
-  List<Object?> get props => [poststatus, postList, message];
+  List<Object?> get props => [poststatus, postList, message, tempPostList];
 }
