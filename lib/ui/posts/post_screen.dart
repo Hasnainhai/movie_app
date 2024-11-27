@@ -38,14 +38,19 @@ class _PostScreenState extends State<PostScreen> {
             );
           case Poststatus.success:
             return ListView.builder(
-                itemCount: state.postList.length,
-                itemBuilder: (context, index) {
-                  final post = state.postList[index];
-                  return ListTile(
-                    title: Text(post.title.toString()),
-                    subtitle: Text(post.body.toString()),
-                  );
-                });
+              itemCount: state.postList.length,
+              itemBuilder: (context, index) {
+                final post = state.postList[index];
+                return ListTile(
+                  title: Text(
+                    post.title.toString(),
+                    style: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(post.body.toString()),
+                );
+              },
+            );
         }
       }),
     );
