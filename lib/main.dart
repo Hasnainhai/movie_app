@@ -19,9 +19,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        // BlocProvider(
-        //   create: (_) => CounterBloc(),
-        // ),
         BlocProvider(
           create: (_) => SwitchBloc(),
         ),
@@ -40,12 +37,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         themeMode: ThemeMode.dark,
-        theme: ThemeData(
-          brightness: Brightness.dark,
-
-          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          // useMaterial3: true,
-        ),
+        theme: ThemeData(brightness: Brightness.dark),
         home: const LoginScreen(),
       ),
     );
